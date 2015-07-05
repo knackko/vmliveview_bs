@@ -36,8 +36,7 @@
             if($resultSessionInfos->num_rows == 1){
                $MonitorData .= "<form name='CurrentScoring' action='' method='get'>\n";
                $MonitorData .= "<fieldset class='sessioninfo'>\n";
-               $MonitorData .= "<legend>" . $langSession . "</legend>\n";
-               $MonitorData .= "<table>\n";
+               $MonitorData .= "<table class='table'>\n";
                
                while($rowSessionInfos = $resultSessionInfos->fetch_assoc()){
                   // -- set session infos
@@ -248,8 +247,7 @@
                   $thStops = "<th class='monitor'>". $langStops . "</th>";
                   
                   $MonitorData .= "<fieldset>\n";
-                  $MonitorData .= "<legend>" . $langStandings . "</legend>\n";
-                  $MonitorData .= "<table>\n";
+                  $MonitorData .= "<div class='table-responsive'><table class='table table-hover table-condensed table-striped'>\n";
                   $MonitorData .= "<tr><th class='monitor'>". $langState . "</th>" .
                                       "<th class='monitor'>". $langPos . "</th>" .
 				      "<th class='monitor'>". $langCP . "</th>" .
