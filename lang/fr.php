@@ -1,8 +1,8 @@
 ﻿<?php
    // -- Translated by: Valbuena72
-   $langAmbientTemp   = "Température ambiante";
+   $langAmbientTemp   = "Air";
    $langAvgLapTime    = "Temps moyen au tour";
-   $langBestLap       = "Meilleur Tour";
+   $langBestLap       = "Meilleur";
    $langClass         = "Classe";
    $langClouds        = "Nuages";
    $langCP            = "CP";
@@ -14,29 +14,29 @@
    $langHotlaps       = "Hotlaps";
    $langICB           = "ICB";
    $langInPits        = "Stands";
-   $langInterval      = "Intervalle";
+   $langInterval      = "Inter";
    $langLang1         = "English";
    $langLang2         = "Deutsch";
    $langLang3         = "Français";
    $langLang4         = "Navigateur";
    $langLapGap        = "Tour(s)";
    $langLapNo         = "Tour#";
-   $langLaps          = "Tours";
+   $langLaps          = "Trs";
    $langLapTime       = "Temps au tour";
-   $langLastLap       = "Dernier tour";
+   $langLastLap       = "Dernier";
    $langLastUpdate    = "Dernière M.A.J";
    $langPenalties     = "Pénalité";
-   $langPitLane       = "Dans les stands";
-   $langPos           = "Pos";
+   $langPitLane       = "PIT";
+   $langPos           = "P";
    $langRain          = "Pluie";
    $langRank          = "Rang";
    $langSecNo         = "Sec#";
-   $langSector1       = "Secteur 1";
-   $langSector2       = "Secteur 2";
-   $langSector3       = "Secteur 3";
-   $langSectorState1  = "État Secteur 1";
-   $langSectorState2  = "État Secteur 2";
-   $langSectorState3  = "État Secteur 3";
+   $langSector1       = "S1";
+   $langSector2       = "S2";
+   $langSector3       = "S3";
+   $langSectorState1  = "S1";
+   $langSectorState2  = "S2";
+   $langSectorState3  = "S3";
    $langSelectLang    = "Sélectionnez la langue";
    $langSession       = "Session";
    $langSessionStart  = "Session démarrer depuis";
@@ -50,8 +50,8 @@
    $langShowStops     = "Afficher Stops";
    $langShowPenalties = "Afficher Pénalités";
    $langStandings     = "Classement";
-   $langState         = "Status";
-   $langStops         = "Stops";
+   $langState         = "E";
+   $langStops         = "Pits";
    $langTeamName      = "Nom du team";
    $langTimedLaps     = "Timed Laps";
    $langTimeLeft      = "Temps restants";
@@ -62,10 +62,10 @@
    $langTrackName     = "Nom du circuit";
    $langTrackRefit    = "Affichier carte du circuit";
    $langTrackState    = "Etat du circuit";
-   $langTrackTemp     = "Temp. Circuit";
+   $langTrackTemp     = "Circuit";
    $langTrackView     = "Voir circuit";
    $langVehicle       = "Vehicule";
    $langVPOT          = "VPOT";
-   $langWetOnTrack    = "Piste humide";
+   $langWetOnTrack    = "Humidité";
    $langWind          = "Vent";
 ?>
