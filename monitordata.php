@@ -251,6 +251,7 @@
                                       $thSecNum .
                                       "<th class='monitor'>". $langSector1 . "</th>" .
                                       "<th class='monitor'>". $langSector2 . "</th>" .
+				      "<th class='monitor'>". $langSector3 . "</th>" .
                                       "<th class='monitor'>". $langLastLap . "</th>" .
                                       "<th class='monitor'>". $langBestLap . "</th>" .
                                       $thStops .
@@ -380,19 +381,26 @@
                      $tdSecNum = "";
                      if($checkedSecNum != ""){$tdSecNum = "<td class='center'>" . $curSector . "</td>";}
                      
-                     // -- format current sector times 1 and 2
+                     // -- format current sector times 1 and 2 and 3
                      $curS1 = $rowSlots["CurS1"];
                      if($rowSlots["CurS1"] <= 0){$curS1 = "-";}
                      if($rowSlots["CurS1"] > 0 && $rowSlots["CurS1"] <= $rowSlots["BestS1"]){$curS1 = "<span class='green'>" . formatLapTime($rowSlots["CurS1"]) . "</span>";}
                      if($rowSlots["CurS1"] > 0 && $rowSlots["CurS1"] > $rowSlots["BestS1"]){$curS1 = "<span class='red'>" . formatLapTime($rowSlots["CurS1"]) . "</span>";}
                      if($rowSlots["CurS1"] > 0 && $rowSlots["CurS1"] <= $siTopS1){$curS1 = "<span class='toptime'>" . formatLapTime($rowSlots["CurS1"]) . "</span>";}
+
+		     if($rowSlots["LastS3"] > 0 && $rowSlots["CurS1"] <= 0 && $rowSlots["CurS2"] <= 0){$curS1 = "<span class='toptime'>" . formatLapTime($rowSlots["LastS1"]) . "</span>";}
                      
                      $curS2 = $rowSlots["CurS2"];
                      if($rowSlots["CurS2"] <= 0){$curS2 = "-";}
                      if($rowSlots["CurS2"] > 0 && $rowSlots["CurS2"] <= $rowSlots["BestS2"]){$curS2 = "<span class='green'>" . formatLapTime($rowSlots["CurS2"]) . "</span>";}
                      if($rowSlots["CurS2"] > 0 && $rowSlots["CurS2"] > $rowSlots["BestS2"]){$curS2 = "<span class='red'>" . formatLapTime($rowSlots["CurS2"]) . "</span>";}
                      if($rowSlots["CurS2"] > 0 && $rowSlots["CurS2"] <= $siTopS2){$curS2 = "<span class='toptime'>" . formatLapTime($rowSlots["CurS2"]) . "</span>";}
+
+		     if($rowSlots["LastS3"] > 0 && $rowSlots["CurS1"] <= 0 && $rowSlots["CurS2"] <= 0){$curS2 = "<span class='toptime'>" . formatLapTime($rowSlots["LastS2"]) . "</span>";}
                      
+		     $curS3 = "-";
+		     if($rowSlots["LastS3"] > 0 && $rowSlots["CurS1"] <= 0 && $rowSlots["CurS2"] <= 0){$curS3 = formatLapTime($rowSlots["LastS3"] - $rowSlots["CurS1"] - $rowSlots["CurS2"]);}
+
                      // -- format last lap and display split times
                      $lastLap = formatLapTime($rowSlots["LastLap"]);
                      if($rowSlots["LastLap"] <= 0){$lastLap = "-";}
@@ -457,6 +465,7 @@
                                                             $tdSecNum .
                                                             "<td class='righttime'>" . $curS1 . "</td>" .
                                                             "<td class='righttime'>" . $curS2 . "</td>" .
+							    "<td class='righttime'>" . $curS3 . "</td>" .
                                                             "<td class='righttime'>" . $lastLap . "</td>" .
                                                             "<td class='righttime'>" . $bestLap . "</td>" .
                                                             $tdStops .
