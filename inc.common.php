@@ -175,12 +175,12 @@
    function setFinishStatus($FinishStatusID){
       $FinishStatus = "Unknown";
       switch($FinishStatusID){
-         case -1: $FinishStatus = "<span class='red'>DISCO</span>"; break;
-         case  0: $FinishStatus = "<span class='green'>Running</span>"; break;
-         case  1: $FinishStatus = "Finished"; break;
-         case  2: $FinishStatus = "<span class='red'>DNF</span>"; break;
-         case  3: $FinishStatus = "<span class='red'>DQ</span>"; break;
-         default: $FinishStatus = "Unknown"; break;
+         case -1: $FinishStatus = "<span class='finish-status-out'>DISCO</span>"; break;
+         case  0: $FinishStatus = "<span class=''></span>"; break;
+         case  1: $FinishStatus = "<span class='finish-status-checkeredflag'>&nbsp;&nbsp;&nbsp;;&nbsp;</span>"; break;
+         case  2: $FinishStatus = "<span class='finish-status-out'>DNF</span>"; break;
+         case  3: $FinishStatus = "<span class='finish-status-out'>DQ</span>"; break;
+         default: $FinishStatus = "Unk"; break;
       }
       return $FinishStatus;
    }

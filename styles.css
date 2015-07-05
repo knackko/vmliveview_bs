@@ -31,6 +31,10 @@ span.finish-status-out {
   background: red;
   color: #fff;
 }
+span.finish-status-checkeredflag {
+  	background-image: url("./img/CheckeredFlag.png");
+	background-size: 30px 30px;
+}
 th {
 	align: center;
 }
