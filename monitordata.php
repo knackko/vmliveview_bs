@@ -245,8 +245,7 @@
                   $thPenalties = "";
                   if($checkedPenalties != ""){$thPenalties = "<th class='monitor'>". $langPenalties . "</th>";}
                   
-                  $thStops = "";
-                  if($checkedStops != ""){$thStops = "<th class='monitor'>". $langStops . "</th>";}
+                  $thStops = "<th class='monitor'>". $langStops . "</th>";
                   
                   $MonitorData .= "<fieldset>\n";
                   $MonitorData .= "<legend>" . $langStandings . "</legend>\n";
@@ -267,7 +266,6 @@
                                       "<th class='monitor'>". $langSector2 . "</th>" .
                                       "<th class='monitor'>". $langLastLap . "</th>" .
                                       "<th class='monitor'>". $langBestLap . "</th>" .
-                                      "<th class='monitor'>". $langPitLane . "</th>" .
                                       $thStops .
                                       $thPenalties .
                                   "</tr>\n";
@@ -441,9 +439,8 @@
                      
                      // -- format total pit stops
                      $totalStops = "-";
-                     if($rowSlots["Pitstops"] > 0){$totalStops = "<span class='red'>" . $rowSlots["Pitstops"] . "</span>";}
-                     $tdStops = "";
-                     if($checkedStops != ""){$tdStops = "<td class='center'>" . $totalStops . "</td>";}
+                     if($rowSlots["Pitstops"] > 0){$totalStops = "<span>" . $rowSlots["Pitstops"] . "</span>";}
+                     $tdStops = "<td class='center'>" . $totalStops . "</td>";
                                           
                      // -- format current penalties to serve
                      $totalPenalties = "-";
@@ -461,8 +458,8 @@
                      $MonitorData .= "<tr class=".$trClass.">".
 							    "<td class='center'>" . $Status . "</td>" .
                                                             "<td class='center'>" . $rowSlots["Place"] . "</td>" .
+							    "<td class='center'>" . $classPos . "</td>" .
                                                             "<td>" . $driverName . "</td>" .
-                                                            "<td class='center'>" . $classPos . "</td>" .
                                                             "<td class='center'>" . $vehicleClass . "</td>" .
                                                             "<td>" . $rowSlots["Vehicle"] . "</td>" .
                                                             $tdICB .
@@ -475,7 +472,6 @@
                                                             "<td class='righttime'>" . $curS2 . "</td>" .
                                                             "<td class='righttime'>" . $lastLap . "</td>" .
                                                             "<td class='righttime'>" . $bestLap . "</td>" .
-                                                            "<td class='center'>" . $pitLane . "</td>" .
                                                             $tdStops .
                                                             $tdPenalties .
                                      "</tr>\n";
