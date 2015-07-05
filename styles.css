@@ -1,3 +1,15 @@
+span.green{
+  line-height: 1.8;
+  display: inline-block;
+  padding: 0 4px;
+  color: green;
+}
+span.red{
+  line-height: 1.8;
+  display: inline-block;
+  padding: 0 4px;
+  color: red;
+}
 span.indicator-running{
   line-height: 1.8;
   display: inline-block;
@@ -18,4 +30,7 @@ span.finish-status-out {
   padding: 0 4px;
   background: red;
   color: #fff;
+}
+th {
+	align: center;
 }
