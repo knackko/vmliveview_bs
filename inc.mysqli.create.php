@@ -1,0 +1,170 @@
+<?php
+   $pageNameIO = "inc.mysqli.create.php";
+      
+   $createTableHotlaps = "CREATE TABLE IF NOT EXISTS `hotlaps` (
+  `ID` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `TrackName` char(64) COLLATE utf8_bin NOT NULL,
+  `DriverName` char(64) COLLATE utf8_bin NOT NULL,
+  `VehicleClass` char(64) COLLATE utf8_bin NOT NULL,
+  `Vehicle` char(64) COLLATE utf8_bin NOT NULL,
+  `LapNo` int(11) unsigned NOT NULL,
+  `TimedLaps` int(11) unsigned NOT NULL,
+  `SessionID` int(11) NOT NULL,
+  `Sec1` double unsigned NOT NULL,
+  `Sec2` double unsigned NOT NULL,
+  `Sec3` double unsigned NOT NULL,
+  `LapTime` double unsigned NOT NULL,
+  `LastUpdate` datetime NOT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `TrackDriverClassVehicle` (`TrackName`,`DriverName`,`VehicleClass`,`Vehicle`),
+  KEY `LapTime` (`LapTime`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin";
+   
+   $createTableRacelaps = "CREATE TABLE IF NOT EXISTS `racelaps` (
+  `ID` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `SlotID` int(11) NOT NULL,
+  `DriverName` char(64) COLLATE utf8_bin NOT NULL,
+  `VehicleClass` char(64) COLLATE utf8_bin NOT NULL,
+  `Vehicle` char(64) COLLATE utf8_bin NOT NULL,
+  `LapNo` int(11) unsigned NOT NULL,
+  `Sec1` double unsigned NOT NULL,
+  `Sec2` double unsigned NOT NULL,
+  `Sec3` double unsigned NOT NULL,
+  `LapTime` double unsigned NOT NULL,
+  `InPits` int(11) NOT NULL,
+  `LastUpdate` datetime NOT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `SlotIDLapNo` (`SlotID`,`LapNo`),
+  KEY `InPits` (`InPits`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin";
+   
+   $createTableSessioninfos = "CREATE TABLE IF NOT EXISTS `sessioninfos` (
+  `ID` int(11) unsigned NOT NULL,
+  `DatabaseVersion` char(64) COLLATE utf8_bin NOT NULL,
+  `LoaderVersion` char(64) COLLATE utf8_bin NOT NULL,
+  `GameID` int(11) NOT NULL,
+  `GameVersion` char(64) COLLATE utf8_bin NOT NULL,
+  `PluginVersion` char(64) COLLATE utf8_bin NOT NULL,
+  `ServerStart` char(64) COLLATE utf8_bin NOT NULL,
+  `ServerState` int(11) NOT NULL,
+  `SessionStart` char(64) COLLATE utf8_bin NOT NULL,
+  `SessionID` int(11) NOT NULL,
+  `SessionState` int(11) NOT NULL,
+  `SessionTime` double NOT NULL,
+  `SessionEnd` double NOT NULL,
+  `CurLaps` int(11) NOT NULL,
+  `MaxLaps` int(11) NOT NULL,
+  `TrackName` char(64) COLLATE utf8_bin NOT NULL,
+  `TrackLength` double NOT NULL,
+  `NumVehicles` int(11) NOT NULL,
+  `InGameStart` int(11) NOT NULL,
+  `YellowFlagState` int(11) NOT NULL,
+  `SectorFlags` char(64) COLLATE utf8_bin NOT NULL,
+  `InRealtime` int(11) NOT NULL,
+  `StartLight` int(11) NOT NULL,
+  `NumRedLights` int(11) NOT NULL,
+  `PlayerName` char(64) COLLATE utf8_bin NOT NULL,
+  `PlrFileName` char(64) COLLATE utf8_bin NOT NULL,
+  `DarkCloud` double NOT NULL,
+  `Raining` double NOT NULL,
+  `AmbientTemp` double NOT NULL,
+  `TrackTemp` double NOT NULL,
+  `Wind` char(64) COLLATE utf8_bin NOT NULL,
+  `OnPathWetness` double NOT NULL,
+  `OffPathWetness` double NOT NULL,
+  `TopS1` double NOT NULL,
+  `TopS2` double NOT NULL,
+  `TopLap` double NOT NULL,
+  `ConnPrefix` char(64) COLLATE utf8_bin NOT NULL,
+  `ConnAddress` char(64) COLLATE utf8_bin NOT NULL,
+  `ConnPort` char(64) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin";
+   
+   $insertDefaultSessionInfo = "INSERT INTO `sessioninfos` VALUES (1, '2.004', '0', '0', '0', '0', '0', 0, '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0::0::0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'rfactor', 'localhost', '34297')";
+   
+   $createTableSlots = "CREATE TABLE IF NOT EXISTS `slots` (
+  `ID` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `SlotID` int(11) NOT NULL,
+  `Place` int(11) NOT NULL,
+  `DriverName` char(64) COLLATE utf8_bin NOT NULL,
+  `VehicleClass` char(64) COLLATE utf8_bin NOT NULL,
+  `Vehicle` char(64) COLLATE utf8_bin NOT NULL,
+  `Control` int(11) NOT NULL,
+  `Laps` int(11) NOT NULL,
+  `Sector` int(11) NOT NULL,
+  `LapStart` double NOT NULL,
+  `LapDist` double NOT NULL,
+  `CurS1` double NOT NULL,
+  `CurS2` double NOT NULL,
+  `LastS1` double NOT NULL,
+  `LastS2` double NOT NULL,
+  `LastS3` double NOT NULL,
+  `LastLap` double NOT NULL,
+  `BestS1` double NOT NULL,
+  `BestS2` double NOT NULL,
+  `BestS3` double NOT NULL,
+  `BestLap` double NOT NULL,
+  `GapTime` double NOT NULL,
+  `GapLaps` int(11) NOT NULL,
+  `IntTime` double NOT NULL,
+  `IntLaps` int(11) NOT NULL,
+  `InPits` int(11) NOT NULL,
+  `InBox` int(11) NOT NULL,
+  `Pitstops` int(11) NOT NULL,
+  `Penalties` int(11) NOT NULL,
+  `FinishStatus` int(11) NOT NULL,
+  `VehicleSpeed` double NOT NULL,
+  `PosX` double NOT NULL,
+  `PosY` double NOT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `SlotID` (`SlotID`),
+  KEY `Place` (`Place`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin";
+   
+   $createTableTrackConfig = "CREATE TABLE IF NOT EXISTS `trackconfig` (
+  `ID` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `TrackName` char(64) COLLATE utf8_bin NOT NULL,
+  `MapScale` double NOT NULL,
+  `MapRotation` double NOT NULL,
+  `MapMirrorX` int(11) NOT NULL,
+  `TrackPosXMin` double NOT NULL,
+  `TrackPosXMax` double NOT NULL,
+  `TrackPosYMin` double NOT NULL,
+  `TrackPosYMax` double NOT NULL,
+  `TrackPosXMinY` double NOT NULL,
+  `TrackPosYMinX` double NOT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `TrackName` (`TrackName`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin";
+   
+   $createTableTrackData = "CREATE TABLE IF NOT EXISTS `trackdata` (
+  `ID` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `TrackName` char(64) COLLATE utf8_bin NOT NULL,
+  `LapDist` double NOT NULL,
+  `Sector` int(11) NOT NULL,
+  `PosX` double NOT NULL,
+  `PosY` double NOT NULL,
+  `BranchID` int(11) NOT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `TrackNameLapDist` (`TrackName`,`LapDist`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin";
+   
+   $createTableXlaps = "CREATE TABLE IF NOT EXISTS `xlaps` (
+  `ID` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `SlotID` int(11) NOT NULL,
+  `DriverName` char(64) COLLATE utf8_bin NOT NULL,
+  `VehicleClass` char(64) COLLATE utf8_bin NOT NULL,
+  `Vehicle` char(64) COLLATE utf8_bin NOT NULL,
+  `LapNo` int(11) unsigned NOT NULL,
+  `Sec1` double unsigned NOT NULL,
+  `Sec2` double unsigned NOT NULL,
+  `Sec3` double unsigned NOT NULL,
+  `LapTime` double unsigned NOT NULL,
+  `InPits` int(11) NOT NULL,
+  `LastUpdate` datetime NOT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `DriverNameLapNo` (`DriverName`,`LapNo`),
+  KEY `InPits` (`InPits`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin";
+?>

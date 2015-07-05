@@ -1,0 +1,339 @@
+@charset "utf-8";
+
+*{
+   margin: 0;
+   padding: 0;
+   font-family: Verdana, Arial, Helvetica, sans-serif;
+   font-size: 10px;
+   white-space: nowrap;
+}
+
+a:link{
+   text-decoration: none;
+   color: #0000FF;
+}
+
+a:visited{
+   text-decoration: none;
+   color: #0000FF;
+}
+
+a:hover{
+   text-decoration: underline;
+   color: #FE1300;
+}
+
+a:active{
+   text-decoration: none;
+   color: #0000FF;
+}
+
+.blue{
+   color: blue;
+}
+
+.bold{
+   font-weight: bold;
+}
+
+.classUC{
+   color: gray;
+}
+
+.finished{
+   color: black;
+   font-weight: bold;
+}
+
+.green{
+   color: green;
+}
+
+.gray{
+   color: gray;
+}
+
+.greenbold{
+   color: green;
+   font-weight: bold;
+}
+
+.infight{
+   color: #F0F;
+}
+
+.info{
+   color: #1E90FF;
+}
+
+.red{
+   color: red;
+}
+
+.redbold{
+   color: red;
+   font-weight: bold;
+}
+
+.sessioninfo{
+   height: 15px;
+}
+
+.setupmsgsgreen{
+   color: green;
+   white-space: normal;
+}
+
+.setupmsgsred{
+   color: red;
+   white-space: normal;
+}
+
+.sliteg{
+   font-size: 12px;
+   color: green;
+   font-weight: bold;
+   vertical-align: middle;
+}
+
+.sliter{
+   font-size: 12px;
+   color: red;
+   font-weight: bold;
+   vertical-align: middle;
+}
+
+.slitey{
+   font-size: 12px;
+   color: #FFD700;
+   font-weight: bold;
+   vertical-align: middle;
+}
+
+.slowinpits{
+   color: #F0F;
+}
+
+.slowontrack{
+   color: #F00;
+}
+
+.toptime{
+   color: #9932CC;
+}
+
+div.break4{
+   height: 4px;
+}
+
+div.break6{
+   height: 6px;
+}
+
+div.break12{
+   height: 12px;
+}
+
+div.break25{
+   height: 25px;
+}
+
+div.center{
+   text-align: center;
+}
+
+div.sitename{
+   font-size: 14px;
+   font-weight: bold;
+}
+
+fieldset{
+   display: inline;
+   padding-top: 5px;
+   padding-bottom: 10px;
+   padding-left: 10px;
+   padding-right: 10px;
+   /* border-radius: 18px; */
+}
+
+fieldset.sessioninfo{
+   height: 150px;
+}
+
+fieldset.setupleft{
+   text-align: left;
+}
+
+fieldset.stats{
+   display: block;
+   width: 0px;
+   margin: 5px;
+   padding-top: 5px;
+   padding-bottom: 10px;
+   padding-left: 10px;
+   padding-right: 10px;
+   /* border-radius: 18px; */
+}
+
+img{
+   vertical-align: middle;
+}
+
+img.lites{
+   padding-right: 1px;
+}
+
+input{
+   vertical-align: middle;
+}
+
+input.setuptext{
+   width: 250px;
+}
+
+input.setuptextreadonly{
+   background-color: #DCDCDC;
+   width: 250px;
+}
+
+input.setupbutton{
+   width: 100px;
+}
+
+label.lang{
+   position: absolute; top: 5px; left: 5px;
+}
+
+legend{
+   margin-left: 18px;
+   /* border-radius: 18px; */
+}
+
+option{
+   margin-left: 5px;
+   margin-right: 5px;
+}
+
+select{
+   background: transparent;
+   border: 1px solid #ccc;
+}
+
+select.trackconfig{
+   width: 255px;
+}
+
+table{
+   border: 0px;
+   border-collapse: collapse;
+   border-spacing: 0px;
+}
+
+table.lang td{
+   border: 0px;
+   border-spacing: 0px;
+   margin: 0px;
+   padding: 3px 5px 2px 0px;
+}
+
+table.setupmsgs{
+   margin-left: auto;
+   margin-right: auto;
+   width: 600px;
+}
+
+table.status td{
+   border: 1px;
+   border-style: solid;
+   border-collapse: collapse;
+   border-spacing: 0px;
+   border-color: gray;
+}
+
+table.center{
+   margin-left: auto;
+   margin-right: auto;
+}
+
+th{
+   padding-left: 3px;
+   padding-right: 3px;
+   padding-top: 1px;
+   padding-bottom: 1px;
+   vertical-align: middle;
+}
+
+th.black{
+   background-color: black;
+   color: white;
+   border-top: 1px solid #000001;
+   border-bottom: 1px solid #000001;
+   font-weight: bold;
+}
+
+th.hotlaps{
+   background-color: #000;
+   color: #FFF;
+   border-top: 1px solid #DC143C;
+   border-bottom: 3px solid #DC143C;
+   font-weight: bold;
+}
+
+th.laps{
+   background-color: #000;
+   color: #FFF;
+   border-top: 1px solid #1E90FF;
+   border-bottom: 3px solid #1E90FF;
+   font-weight: bold;
+}
+
+th.monitor{
+   background-color: #000;
+   color: #FFF;
+   border-top: 1px solid #A9A9A9;
+   border-bottom: 3px solid #A9A9A9;
+   font-weight: bold;
+}
+
+td{
+   text-align: left;
+   padding-left: 3px;
+   padding-right: 3px;
+   padding-top: 1px;
+   padding-bottom: 1px;
+   vertical-align: middle;
+}
+
+td.center{
+   text-align: center;
+}
+   
+td.right{
+   text-align: right;
+}
+
+td.righttime{
+   text-align: right;
+   width: 65px;
+}
+
+td.rightgap{
+   text-align: right;
+   width: 60px;
+}
+
+tr.bg0 td{
+   background-color: white;
+}
+
+tr.bg1 td{
+   background-color: #DCDCDC;
+}
+
+tr.bg2 td{
+   background-color: #FFFF99;
+}
+
+tr.bg3 td{
+   background-color: #F08080;
+}
