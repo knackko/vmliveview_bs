@@ -1,0 +1,21 @@
+span.indicator-running{
+  line-height: 1.8;
+  display: inline-block;
+  padding: 0 4px;
+  background: green;
+  color: #fff;
+}
+span.indicator-in-pits {
+  line-height: 1.8;
+  display: inline-block;
+  padding: 0 4px;
+  background: orange;
+  color: #fff;
+}
+span.finish-status-out {
+  line-height: 1.8;
+  display: inline-block;
+  padding: 0 4px;
+  background: red;
+  color: #fff;
+}
