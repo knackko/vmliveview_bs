@@ -195,27 +195,16 @@
                $MonitorData .= "</table>\n";
                $MonitorData .= "</fieldset>\n";
                
-               $MonitorData .= "<fieldset class='sessioninfo'>\n";
-               $MonitorData .= "<legend>" . $langExtras . "</legend>\n";
-               $MonitorData .= "<table>\n";
                $checkedICB = "";
                if(isset($_POST["showICB"]) && $_POST["showICB"] == "1"){$checkedICB = "checked='checked'";}
-               $MonitorData .= "<tr><td class='sessioninfo'><label><input type='checkbox' name='showICB' value='1' " . $checkedICB . " onClick='display()'> " . $langShowICB . "</label></td></tr>\n";
                $checkedVPOT = "";
                if(isset($_POST["showVPOT"]) && $_POST["showVPOT"] == "1"){$checkedVPOT = "checked='checked'";}
-               $MonitorData .= "<tr><td class='sessioninfo'><label><input type='checkbox' name='showVPOT' value='1' " . $checkedVPOT . " onClick='display()'> " . $langShowVPOT . "</label></td></tr>\n";
                $checkedSecNum = "";
                if(isset($_POST["showSecNum"]) && $_POST["showSecNum"] == "1"){$checkedSecNum = "checked='checked'";}
-               $MonitorData .= "<tr><td class='sessioninfo'><label><input type='checkbox' name='showSecNum' value='1' " . $checkedSecNum . " onClick='display()'> " . $langShowSecNo . "</label></td></tr>\n";
                $checkedStops = "";
                if(isset($_POST["showStops"]) && $_POST["showStops"] == "1"){$checkedStops = "checked='checked'";}
-               $MonitorData .= "<tr><td class='sessioninfo'><label><input type='checkbox' name='showStops' value='1' " . $checkedStops . " onClick='display()'> " . $langShowStops . "</label></td></tr>\n";
                $checkedPenalties = "";
                if(isset($_POST["showPenalties"]) && $_POST["showPenalties"] == "1"){$checkedPenalties = "checked='checked'";}
-               $MonitorData .= "<tr><td class='sessioninfo'><label><input type='checkbox' name='showPenalties' value='1' " . $checkedPenalties . " onClick='display()'> " . $langShowPenalties . "</label></td></tr>\n";
-               $MonitorData .= "</table>\n";
-               $MonitorData .= "<input type='hidden' name='SelectedLang' value='" . $queryLang . "'>\n";
-               $MonitorData .= "</fieldset>\n";
             }else{
                $MonitorData .= "<div class='break12'></div>\n";
                $MonitorData .= "<div class='red'>No session data found.</div>\n";
