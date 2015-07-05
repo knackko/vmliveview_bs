@@ -173,38 +173,25 @@
                   }else{
                      $spanInGameTime = "";
                   }
-                  
-                  $MonitorData .= "<tr><td class='sessioninfo'><b>" . $langServerStart . "</b></td><td class='sessioninfo'><b>:</b> " . formatStartTime($siServerStart) . "</td>" .
-                                      "<td class='sessioninfo'><b>" . $langSessionState . "</b></td><td class='sessioninfo'><b>:</b> " . setSessionState($siSessionState) . "</td>" .
-                                      "<td class='sessioninfo'><b>" . $langAmbientTemp . "</b></td><td class='sessioninfo'><b>:</b> " .  $siAmbientTemp . " &deg;C</td>" .
-                                  "</tr>\n";
-                  $MonitorData .= "<tr><td class='sessioninfo'><b>" . $langSessionStart . "</b></td><td class='sessioninfo'><b>:</b> " . formatStartTime($siSessionStart) . "</td>" .
-                                      "<td class='sessioninfo'><b>" . $langTrackState . "</b></td><td class='sessioninfo'><b>:</b> " . $siTrackState . "</td>" .
-                                      "<td class='sessioninfo'><b>" . $langTrackTemp . "</b></td><td class='sessioninfo'><b>:</b> " . $siTrackTemp . " &deg;C</td>" .
-                                  "</tr>\n";
-                  $MonitorData .= "<tr><td class='sessioninfo'><b>" . $langServerTime . "</b></td><td class='sessioninfo'><b>:</b> " . date("d.m.Y (H:i:s) T") . "</td>" .
-                                      "<td class='sessioninfo'><b>" . $langSectorState1 . "</b></td><td class='sessioninfo'><b>:</b> " . $sectorState1 . "</td>" .
-                                      "<td class='sessioninfo'><b>" . $langClouds . "</b></td><td class='sessioninfo'><b>:</b> " . $siDarkClouds . " %</td>" .
-                                  "</tr>\n";
-                  $MonitorData .= "<tr><td class='sessioninfo'><b>" . $langSession . "</b></td><td class='sessioninfo'><b>:</b> " . $siSessionName . $spanInGameTime . "</td>" .
-                                      "<td class='sessioninfo'><b>" . $langSectorState2 . "</b></td><td class='sessioninfo'><b>:</b> " . $sectorState2 . "</td>" .
-                                      "<td class='sessioninfo'><b>" . $langRain . "</b></td><td class='sessioninfo'><b>:</b> " . $siRaining . " %</td>" .
-                                  "</tr>\n";
-                  $MonitorData .= "<tr><td class='sessioninfo'><b>" . $langDuration . "</b></td><td class='sessioninfo'><b>:</b> " . formatSessionTime($siSessionEnd) . "<span class='gray'> (HH:MM:SS)</span></td>" .
-                                      "<td class='sessioninfo'><b>" . $langSectorState3 . "</b></td><td class='sessioninfo'><b>:</b> " . $sectorState3 . "</td>" .
-                                      "<td class='sessioninfo'><b>" . $langWetOnTrack . "</b></td><td class='sessioninfo'><b>:</b> " . $siWetOnTrack . " %</td>" .
-                                  "</tr>\n";
-                  $MonitorData .= "<tr><td class='sessioninfo'><b>" . $langTimeLeft . "</b></td><td class='sessioninfo'><b>:</b> " . $siSessionTimeLeft . "<span class='gray'> (HH:MM:SS)</span></td>" .
-                                      "<td class='sessioninfo'><b>" . $langTrackView . "</b></td><td class='sessioninfo'><b>:</b> <a href='" . $siteURL . "/track.php?Lang=" . $queryLang . "' target='_blank'>" . $langTrack . "</a></td>" .
-                                      "<td class='sessioninfo'><b>" . $langWind . "</b></td><td class='sessioninfo'><b>:</b> - &deg;</td>" .
-                                  "</tr>\n";
-                  $MonitorData .= "<tr><td class='sessioninfo'><b>" . $langLaps . "</b></td><td class='sessioninfo'><b>:</b> " . $siSessionLaps . "/" . $siMaxLaps . "/" . $leftLaps . "</td>" .
-                                      "<td class='sessioninfo'><b>" . $langTrackHotlaps . "</b></td><td class='sessioninfo'><b>:</b> <a href='" . $siteURL . "/hotlaps.php?TrackName=" . urlencode($siTrackName) . "&amp;Lang=" . $queryLang . "' target='_blank'>" . $langHotlaps . "</a></td>" .
-                                      "<td class='sessioninfo'><b>" . $langTrackLength . "</b></td><td class='sessioninfo'><b>:</b> " . $siTrackLength . " m</td>" .
-                                  "</tr>\n";
-                  $MonitorData .= "<tr><td class='sessioninfo'><b>" . $langServerUptime . "</b></td><td class='sessioninfo'><b>:</b> " . formatUptime($siServerStart, $siServerState) . "<span class='gray'> (DD:HH:MM)</span></td>" .
-                                      "<td class='sessioninfo'><b>" . $langTrackName . "</b></td><td class='sessioninfo' colspan='3'><b>:</b> " . $siTrackName . "</td>" .
-                                  "</tr>\n";
+		  $MonitorData .= "<div><div><h1>" . $siTrackName . "</h1></div><div>  (" . $siTrackLength . "m)</div></div>";
+		  $MonitorData .= "<div>".
+		  " " . $langAmbientTemp . "</b><b>:</b> " .  $siAmbientTemp . "&deg;C" .
+			" " . $langTrackTemp . "</b><b>:</b> " . $siTrackTemp . "&deg;C" .
+			" " . $langClouds . "</b><b>:</b> " . $siDarkClouds . "%" .
+			" " . $langRain . "</b><b>:</b> " . $siRaining . "%" .
+			" " . $langWetOnTrack . "</b><b>:</b> " . $siWetOnTrack . " %" .
+			" " . $langWind . "</b></td><b>:</b> - &deg;" .
+			"</div>\n";
+		  $MonitorData .= "<tr><td class='sessioninfo'><b>" . $langSession . "</b></td><td class='sessioninfo'><b>:</b> " . $siSessionName . "</td>" .
+			  "<td class='sessioninfo'><td class='sessioninfo'>(" . $siTrackState . "</td>" .
+			  "<td class='sessioninfo'>S1" . $sectorState1 . "" .
+			  "S2" . $sectorState2 . "" .
+			  "S3" . $sectorState3 . ")</td>" .
+			  "</tr>\n";
+		  $MonitorData .= "<tr>".
+		  "<td class='sessioninfo'><b>" . $langDuration . "</b></td><td class='sessioninfo'><b>:</b> " . formatSessionTime($siSessionEnd) . "</td>" .
+		  "<td class='sessioninfo'><b>" . $langTimeLeft . "</b></td><td class='sessioninfo'><b>:</b> " . $siSessionTimeLeft . "</td>" .
+		  "</tr>\n";
                }
                $MonitorData .= "</table>\n";
                $MonitorData .= "</fieldset>\n";
@@ -264,10 +251,10 @@
                   $MonitorData .= "<fieldset>\n";
                   $MonitorData .= "<legend>" . $langStandings . "</legend>\n";
                   $MonitorData .= "<table>\n";
-                  $MonitorData .= "<tr><th class='monitor'>". $langHigh . "</th>" .
+                  $MonitorData .= "<tr><th class='monitor'>". $langState . "</th>" .
                                       "<th class='monitor'>". $langPos . "</th>" .
+				      "<th class='monitor'>". $langCP . "</th>" .
                                       "<th class='monitor'>". $langDriver . "</th>" .
-                                      "<th class='monitor'>". $langCP . "</th>" .
                                       "<th class='monitor'>". $langClass . "</th>" .
                                       "<th class='monitor'>". $langVehicle . "</th>" .
                                       $thICB .
@@ -283,7 +270,6 @@
                                       "<th class='monitor'>". $langPitLane . "</th>" .
                                       $thStops .
                                       $thPenalties .
-                                      "<th class='monitor'>". $langState . "</th>" .
                                   "</tr>\n";
                   
                   $i = 1;
@@ -444,12 +430,12 @@
                      }
                      
                      // -- format pit lane
-                     $pitLane = "-";
-                     if($rowSlots["InBox"] == 1){
-                        $pitLane = "<span class='red'>BOX</span>";
+                     $Status = "<span class='indicator indicator-running'>R</span>";
+                     if(($rowSlots["InBox"] == 1) && ($rowSlots["FinishStatus"] == 0)){
+                        $Status = "<span class='indicator indicator-in-pits'>BOX</span>";
                      }else{
-                        if($rowSlots["InPits"] == 1){
-                           $pitLane = "<span class='blue'>PIT</span>";
+                        if($rowSlots["InPits"] == 1 && ($rowSlots["FinishStatus"] == 0)){
+                           $Status = "<span class='indicator indicator-in-pits'>P</span>";
                         }
                      }
                      
@@ -466,13 +452,14 @@
                      if($checkedPenalties != ""){$tdPenalties = "<td class='center'>" . $totalPenalties . "</td>";}
 
                      // -- format finish status
-                     $finishStatus = setFinishStatus($rowSlots["FinishStatus"]);
+                     if($rowSlots["FinishStatus"] != 0){ $Status = setFinishStatus($rowSlots["FinishStatus"]);}
                      
                      $trClass = "'bg0'";
                      if(($i % 2) == 0){$trClass = "'bg1'";}
                      if($slotSelected == "checked='checked'"){$trClass = "'bg2'";}
                      
-                     $MonitorData .= "<tr class=".$trClass."><td class='center'><input type='checkbox' name='SlotID" . $rowSlots["SlotID"] . "' value='1' " . $slotSelected . " onClick='display()'></td>" .
+                     $MonitorData .= "<tr class=".$trClass.">".
+							    "<td class='center'>" . $Status . "</td>" .
                                                             "<td class='center'>" . $rowSlots["Place"] . "</td>" .
                                                             "<td>" . $driverName . "</td>" .
                                                             "<td class='center'>" . $classPos . "</td>" .
@@ -491,7 +478,6 @@
                                                             "<td class='center'>" . $pitLane . "</td>" .
                                                             $tdStops .
                                                             $tdPenalties .
-                                                            "<td class='center'>" . $finishStatus . "</td>" .
                                      "</tr>\n";
                      
                      $i ++;
