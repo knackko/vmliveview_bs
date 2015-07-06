@@ -54,7 +54,8 @@
    $langStops         = "Pits";
    $langTeamName      = "Team Name";
    $langTimedLaps     = "Timed Laps";
-   $langTimeLeft      = "Remaining time";
+   $langTimeLeft      = "Remaining";
+   $langTime          = "Elapsed";
    $langTotalStops    = "Total Pit Stops";
    $langTrack         = "Track";
    $langTrackHotlaps  = "Track Hotlaps";

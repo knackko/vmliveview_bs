@@ -36,7 +36,6 @@
             if($resultSessionInfos->num_rows == 1){
                $MonitorData .= "<form name='CurrentScoring' action='' method='get'>\n";
                $MonitorData .= "<fieldset class='sessioninfo'>\n";
-               $MonitorData .= "<table class='table'>\n";
                
                while($rowSessionInfos = $resultSessionInfos->fetch_assoc()){
                   // -- set session infos
@@ -84,36 +83,43 @@
                   $arrSectorFlags[2] = 0;
                   $arrSectorFlags = explode("::", $rowSessionInfos["SectorFlags"]);
                   
-                  $sectorState1 = " <span class='sliteg'>&bull;</span>&nbsp;<span class='sliteg'>&bull;</span>&nbsp;<span class='sliteg'>&bull;</span>&nbsp;<span class='sliteg'>&bull;</span>&nbsp;<span class='sliteg'>&bull;</span>";
-                  $sectorState2 = " <span class='sliteg'>&bull;</span>&nbsp;<span class='sliteg'>&bull;</span>&nbsp;<span class='sliteg'>&bull;</span>&nbsp;<span class='sliteg'>&bull;</span>&nbsp;<span class='sliteg'>&bull;</span>";
-                  $sectorState3 = " <span class='sliteg'>&bull;</span>&nbsp;<span class='sliteg'>&bull;</span>&nbsp;<span class='sliteg'>&bull;</span>&nbsp;<span class='sliteg'>&bull;</span>&nbsp;<span class='sliteg'>&bull;</span>";
+                  $sectorState1 = " <span class='sliteg'>S1</span>";
+                  $sectorState2 = " <span class='sliteg'>S2</span>";
+                  $sectorState3 = " <span class='sliteg'>S3</span>";
                   
                   $sectorClearID = 0;
                   if($siGameID == 2){
                      $sectorClearID = 11;
                   }
                   if($arrSectorFlags[1] != $sectorClearID){
-                     $sectorState1 = " <span class='slitey'>&bull;</span>&nbsp;<span class='slitey'>&bull;</span>&nbsp;<span class='slitey'>&bull;</span>&nbsp;<span class='slitey'>&bull;</span>&nbsp;<span class='slitey'>&bull;</span>";
+                     $sectorState1 = " <span class='slitey'>S1</span>";
                   }
                   
                   if($arrSectorFlags[2] != $sectorClearID){
-                     $sectorState2 = " <span class='slitey'>&bull;</span>&nbsp;<span class='slitey'>&bull;</span>&nbsp;<span class='slitey'>&bull;</span>&nbsp;<span class='slitey'>&bull;</span>&nbsp;<span class='slitey'>&bull;</span>";
+                     $sectorState2 = " <span class='slitey'>S2</span>";
                   }
                   
                   if($arrSectorFlags[0] != $sectorClearID){
-                     $sectorState3 = " <span class='slitey'>&bull;</span>&nbsp;<span class='slitey'>&bull;</span>&nbsp;<span class='slitey'>&bull;</span>&nbsp;<span class='slitey'>&bull;</span>&nbsp;<span class='slitey'>&bull;</span>";
+                     $sectorState3 = " <span class='slitey'>S3</span>";
                   }
                   
-                  if($siSessionState <= 3 || $siSessionState == 6 || $siSessionState >= 8){
-                     $sectorState1 = " <span class='slitey'>&bull;</span>&nbsp;<span class='sliteg'>&bull;</span>&nbsp;<span class='sliteg'>&bull;</span>&nbsp;<span class='sliteg'>&bull;</span>&nbsp;<span class='sliteg'>&bull;</span>";
-                     $sectorState2 = " <span class='slitey'>&bull;</span>&nbsp;<span class='sliteg'>&bull;</span>&nbsp;<span class='sliteg'>&bull;</span>&nbsp;<span class='sliteg'>&bull;</span>&nbsp;<span class='sliteg'>&bull;</span>";
-                     $sectorState3 = " <span class='slitey'>&bull;</span>&nbsp;<span class='sliteg'>&bull;</span>&nbsp;<span class='sliteg'>&bull;</span>&nbsp;<span class='sliteg'>&bull;</span>&nbsp;<span class='sliteg'>&bull;</span>";
+                  if($siSessionState <= 3 || $siSessionState == 6){
+                     $sectorState1 = " <span class='slitey'>S1</span>";
+                     $sectorState2 = " <span class='slitey'>S2</span>";
+                     $sectorState3 = " <span class='slitey'>S3</span>";
                   }
+
+                  if($siSessionState >= 8){
+                     $sectorState1 = " <span class='slitef'>&nbsp;&nbsp</span>";
+                     $sectorState2 = " <span class='slitef'>&nbsp;&nbsp</span>";
+                     $sectorState3 = " <span class='slitef'>&nbsp;&nbsp</span>";
+                  }
+
                   
-                  if($siSessionState == 4 || $siSessionState == 7){
-                     $sectorState1 = " <span class='sliter'>&bull;</span>&nbsp;<span class='sliteg'>&bull;</span>&nbsp;<span class='sliteg'>&bull;</span>&nbsp;<span class='sliteg'>&bull;</span>&nbsp;<span class='sliteg'>&bull;</span>";
-                     $sectorState2 = " <span class='sliter'>&bull;</span>&nbsp;<span class='sliteg'>&bull;</span>&nbsp;<span class='sliteg'>&bull;</span>&nbsp;<span class='sliteg'>&bull;</span>&nbsp;<span class='sliteg'>&bull;</span>";
-                     $sectorState3 = " <span class='sliter'>&bull;</span>&nbsp;<span class='sliteg'>&bull;</span>&nbsp;<span class='sliteg'>&bull;</span>&nbsp;<span class='sliteg'>&bull;</span>&nbsp;<span class='sliteg'>&bull;</span>";
+                  if($siSessionState == 4 || $siSessionState == 7 || $siSessionState == 0){
+                     $sectorState1 = " <span class='sliter'>S1</span>";
+                     $sectorState2 = " <span class='sliter'>S2</span>";
+                     $sectorState3 = " <span class='sliter'>S3</span>";
                   }
                   
                   // -- display session laps (completed / max / remaining)
@@ -151,9 +157,9 @@
                      
                      $siSessionState = "-";
                      $siTrackState = "-";
-                     $sectorState1 = " <span class='sliter'>&bull;</span>&nbsp;<span class='sliter'>&bull;</span>&nbsp;<span class='sliter'>&bull;</span>&nbsp;<span class='sliter'>&bull;</span>&nbsp;<span class='sliter'>&bull;</span>";
-                     $sectorState2 = " <span class='sliter'>&bull;</span>&nbsp;<span class='sliter'>&bull;</span>&nbsp;<span class='sliter'>&bull;</span>&nbsp;<span class='sliter'>&bull;</span>&nbsp;<span class='sliter'>&bull;</span>";
-                     $sectorState3 = " <span class='sliter'>&bull;</span>&nbsp;<span class='sliter'>&bull;</span>&nbsp;<span class='sliter'>&bull;</span>&nbsp;<span class='sliter'>&bull;</span>&nbsp;<span class='sliter'>&bull;</span>";
+                     $sectorState1 = " <span class='sliter'>S1</span>";
+                     $sectorState2 = " <span class='sliter'>S2</span>";
+                     $sectorState3 = " <span class='sliter'>S3</span>";
                      
                      $siAmbientTemp = "-";
                      $siTrackTemp = "-";
@@ -172,27 +178,28 @@
                   }else{
                      $spanInGameTime = "";
                   }
-		  $MonitorData .= "<div><div><h1>" . $siTrackName . "</h1></div><div>  (" . $siTrackLength . "m)</div></div>";
-		  $MonitorData .= "<div>".
-		  " " . $langAmbientTemp . "</b><b>:</b> " .  $siAmbientTemp . "&deg;C" .
-			" " . $langTrackTemp . "</b><b>:</b> " . $siTrackTemp . "&deg;C" .
-			" " . $langClouds . "</b><b>:</b> " . $siDarkClouds . "%" .
-			" " . $langRain . "</b><b>:</b> " . $siRaining . "%" .
-			" " . $langWetOnTrack . "</b><b>:</b> " . $siWetOnTrack . " %" .
-			" " . $langWind . "</b></td><b>:</b> - &deg;" .
+		  $MonitorData .= "<div class='container-fluid'><div class='row'>".
+			"<div class='col-xs-2'>" . $siTrackName . "</div>" . 
+			"<div class='col-xs-2'>  (" . $siTrackLength . "m)</div></div>";
+		  $MonitorData .= "<div class='row'>" .
+			"<div class='col-xs-2'>" . $langAmbientTemp . ": " .  $siAmbientTemp . "&deg;C</div>" .
+			"<div class='col-xs-2'>" . $langTrackTemp . ": " . $siTrackTemp . "&deg;C</div>" .
+			"<div class='col-xs-2'>" . $langClouds . ": " . $siDarkClouds . "%</div>" .
+			"<div class='col-xs-2'>" . $langRain . ": " . $siRaining . "%</div>" .
+			"<div class='col-xs-2'>" . $langWetOnTrack . ": " . $siWetOnTrack . "%</div>" .
+			"<div class='col-xs-2'>" . $langWind . ": - &deg;</div>" .
 			"</div>\n";
-		  $MonitorData .= "<tr><td class='sessioninfo'><b>" . $langSession . "</b></td><td class='sessioninfo'><b>:</b> " . $siSessionName . "</td>" .
-			   "<td class='sessioninfo'><b>" . $langDuration . "</b></td><td class='sessioninfo'><b>:</b> " . formatSessionTime($siSessionEnd) . "</td>" .
-			  "</tr>\n";
-		  $MonitorData .= "<tr>".
-		  "<td class='sessioninfo'><b>" . $langTimeLeft . "</b></td><td class='sessioninfo'><b>:</b> " . $siSessionTimeLeft . "</td>" .
-		  "<td class='sessioninfo'><td class='sessioninfo'>(" . $siTrackState . "</td>" .
-   		  "<td class='sessioninfo'>S1" . $sectorState1 . "" .
-		  "S2" . $sectorState2 . "" .
-		  "S3" . $sectorState3 . ")</td>" .
-		  "</tr>\n";
+		  $MonitorData .= "<div class='row'>" .
+			  "<div class='col-xs-2'>" . $langSession . ": " . $siSessionName . "</div>" .
+			  "<div class='col-xs-2'>" . $langDuration . ": " . formatSessionTime($siSessionEnd) . "</div>" .
+			  "<div class='col-xs-2'>" . $siTrackState . setSessionState($siSessionState) . "</div>" .
+			  "</div>\n";
+		  $MonitorData .= "<div class='row'> " .
+		  "<div class='col-xs-1 current'>" . $langTime . "<b> " . formatSessionTime($siSessionTime) . "</b></div>" .
+   		  "<div class='col-xs-2 col-xs-offset-4'>" . $sectorState1 . "" . $sectorState2 . "" . $sectorState3 . "</div>" .
+		  "<div class='col-xs-1 col-xs-offset-4 current'>" . $langTimeLeft . " <b>" . $siSessionTimeLeft . "</b></div>" .
+		  "</div></div>\n";
                }
-               $MonitorData .= "</table>\n";
                $MonitorData .= "</fieldset>\n";
                
                $checkedICB = "";
