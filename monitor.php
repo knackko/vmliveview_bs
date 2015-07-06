@@ -23,7 +23,7 @@
 <script src='<?php echo $siteURL; ?>/css.errors.js' type='text/javascript'></script>
 </head>
 <body>
-<form name='SelectLang' action='<?php echo $siteURL; ?>/monitor.php' method='POST'>
+<!-- <form name='SelectLang' action='<?php echo $siteURL; ?>/monitor.php' method='POST'>
 <label class='lang'><span class='bold'><?php echo $langSelectLang; ?>: </span>
    <select name='displayLang' onChange='this.form.submit();'>
       <option value='00' <?php echo $selected00; ?>>Browser</option>
@@ -34,6 +34,7 @@
    </select>
 </label>
 </form>
+!-->
 <div class='break4'></div>
 <div class='center'>
 <div class='sitename'><?php echo $siteName; ?></div>
