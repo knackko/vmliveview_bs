@@ -491,14 +491,30 @@
          }
          
          $mySQLiConn->close();
+
+	 $MonitorData .= "<div class='container-fluid'>" .
+	    "<div class='row'>" .
+		"<div class='col-xs-8' id='legend-wrap2'><h2>Legend</h2></div></div>" .
+	    "<div class='row'>" .
+                "<div class='col-xs-2'><span class='indicator indicator-running'>R</span><span>&nbsp;Running</span></div>" .
+		"<div class='col-xs-2'><span class='slowontrack'>SL</span><span>&nbsp;Slow on track</span></div>" .
+                "<div class='col-xs-2'><span class='finish-status-checkeredflag'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span>&nbsp;Checkered flag</span></div>" .
+		"</div>" .
+	    "<div class='row'>" .
+		"<div class='col-xs-2'><span class='indicator indicator-in-pits'>P</span><span>&nbsp;Pit</span></div>" .
+		"<div class='col-xs-2'><span class='finish-status-out'>DQ</span><span>&nbsp;Disqualified</span></div>" .
+		"<div class='col-xs-2'><span class='finish-status-out'>DIS</span><span>&nbsp;Disconnected</span></div>" .
+                "<div class='col-xs-2'><span class='finish-status-out'>DNF</span><span>&nbsp;Do not function</span></div>" .
+	    "</div>" .
+	    "</div>";
          
-         $MonitorData .= "<div>" .
+   /*      $MonitorData .= "<div>" .
                          "[" . $siGameVersion . " with " . $siPluginVersion . " and " . $siLoaderVersion . "]" .
                          "[rFactor DS: <a href='" . $siConnPrefix . "://" . $siConnAddress . ":" . $siConnPort . "' target='_blank'>" . $siConnAddress . ":" . $siConnPort . "</a>]" .
                          "[Conn: " . $currentConnections . "]" .
                          "[Data: " . sprintf("%.1F" ,((strlen($MonitorData) * 8) / 1000)) . " kBit]" .
                          "[Load: " . $currentServerLoad . "]" .
-                         "</div>\n"; 
+                         "</div>\n"; */
          
          echo $MonitorData;
          

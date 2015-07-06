@@ -175,7 +175,7 @@
    function setFinishStatus($FinishStatusID){
       $FinishStatus = "Unknown";
       switch($FinishStatusID){
-         case -1: $FinishStatus = "<span class='finish-status-out'>DISCO</span>"; break;
+         case -1: $FinishStatus = "<span class='finish-status-out'>DIS</span>"; break;
          case  0: $FinishStatus = "<span class=''></span>"; break;
          case  1: $FinishStatus = "<span class='finish-status-checkeredflag'>&nbsp;&nbsp;&nbsp;&nbsp;</span>"; break;
          case  2: $FinishStatus = "<span class='finish-status-out'>DNF</span>"; break;
