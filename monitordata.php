@@ -182,14 +182,14 @@
 			" " . $langWind . "</b></td><b>:</b> - &deg;" .
 			"</div>\n";
 		  $MonitorData .= "<tr><td class='sessioninfo'><b>" . $langSession . "</b></td><td class='sessioninfo'><b>:</b> " . $siSessionName . "</td>" .
-			  "<td class='sessioninfo'><td class='sessioninfo'>(" . $siTrackState . "</td>" .
-			  "<td class='sessioninfo'>S1" . $sectorState1 . "" .
-			  "S2" . $sectorState2 . "" .
-			  "S3" . $sectorState3 . ")</td>" .
+			   "<td class='sessioninfo'><b>" . $langDuration . "</b></td><td class='sessioninfo'><b>:</b> " . formatSessionTime($siSessionEnd) . "</td>" .
 			  "</tr>\n";
 		  $MonitorData .= "<tr>".
-		  "<td class='sessioninfo'><b>" . $langDuration . "</b></td><td class='sessioninfo'><b>:</b> " . formatSessionTime($siSessionEnd) . "</td>" .
 		  "<td class='sessioninfo'><b>" . $langTimeLeft . "</b></td><td class='sessioninfo'><b>:</b> " . $siSessionTimeLeft . "</td>" .
+		  "<td class='sessioninfo'><td class='sessioninfo'>(" . $siTrackState . "</td>" .
+   		  "<td class='sessioninfo'>S1" . $sectorState1 . "" .
+		  "S2" . $sectorState2 . "" .
+		  "S3" . $sectorState3 . ")</td>" .
 		  "</tr>\n";
                }
                $MonitorData .= "</table>\n";
@@ -275,13 +275,6 @@
                      
                      // -- format driver name
                      $driverName = $rowSlots["DriverName"];
-                     if($rowSlots["InPits"] == 0 && $rowSlots["VehicleSpeed"] < 14.1){
-                        $driverName = "<span class='slowontrack'>" . $rowSlots["DriverName"] . "</span>";
-                     }elseif($rowSlots["InPits"] == 1 && $rowSlots["VehicleSpeed"] > 0.0){
-                        $driverName = "<span class='slowinpits'>" . $rowSlots["DriverName"] . "</span>";
-                     }elseif($rowSlots["InPits"] == 1){
-                        $driverName = "<span class='blue'>" . $rowSlots["DriverName"] . "</span>";
-                     }
                      
                      // -- format vehicle classes
                      $vehicleClass = $rowSlots["VehicleClass"];
@@ -422,7 +415,7 @@
                         if($bestLap < 0){$bestLap = "<span class='green'>" . number_format($bestLap, 3) . "</span>";}
                      }
                      
-                     // -- format pit lane
+                     // -- format Status: pit lane
                      $Status = "<span class='indicator indicator-running'>R</span>";
                      if(($rowSlots["InBox"] == 1) && ($rowSlots["FinishStatus"] == 0)){
                         $Status = "<span class='indicator indicator-in-pits'>BOX</span>";
@@ -431,9 +424,14 @@
                            $Status = "<span class='indicator indicator-in-pits'>P</span>";
                         }
                      }
-                     
+                    
+		     // -- format Status: slow on track 
+		     if($rowSlots["InPits"] == 0 && $rowSlots["VehicleSpeed"] < 14.1){
+		       $Status = "<span class='slowontrack'>SL</span>";
+		     }
+
                      // -- format total pit stops
-                     $totalStops = "-";
+                     $totalStops = "0";
                      if($rowSlots["Pitstops"] > 0){$totalStops = "<span>" . $rowSlots["Pitstops"] . "</span>";}
                      $tdStops = "<td class='center'>" . $totalStops . "</td>";
                                           
@@ -443,7 +441,7 @@
                      $tdPenalties = "";
                      if($checkedPenalties != ""){$tdPenalties = "<td class='center'>" . $totalPenalties . "</td>";}
 
-                     // -- format finish status
+                     // -- format Status: finish status
                      if($rowSlots["FinishStatus"] != 0){ $Status = setFinishStatus($rowSlots["FinishStatus"]);}
                      
                      $trClass = "'bg0'";
@@ -475,7 +473,7 @@
                      $i ++;
                   }
                   
-                  $MonitorData .= "</table>\n";
+                  $MonitorData .= "</table></div>\n";
                   $MonitorData .= "</fieldset>\n";
                   $MonitorData .= "</form>\n";
                }
@@ -493,7 +491,7 @@
                          "[Conn: " . $currentConnections . "]" .
                          "[Data: " . sprintf("%.1F" ,((strlen($MonitorData) * 8) / 1000)) . " kBit]" .
                          "[Load: " . $currentServerLoad . "]" .
-                         "</div>\n";
+                         "</div>\n"; 
          
          echo $MonitorData;
          

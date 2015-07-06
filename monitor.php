@@ -11,8 +11,9 @@
 <meta http-equiv='expires' content='0'>
 <meta http-equiv='content-type' content='text/html; charset=<?php echo $siteCharSet; ?>'>
 <title>VM LiveView Lite (Monitor)</title>
-<link rel='stylesheet' type='text/css' href='<?php echo $siteURL; ?>/styles.css'>
 <link rel='stylesheet' type='text/css' href='http://beta.old-drivers-spirit.fr/templates/t3_bs3_blank/local/css/bootstrap.css'>
+<link rel='stylesheet' type='text/css' href='<?php echo $siteURL; ?>/styles.css'>
+<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 <script type='text/javascript'>
    var siteCharset = '<?php echo $siteCharSet; ?>';
    var siteURL = '<?php echo $siteURL; ?>';
