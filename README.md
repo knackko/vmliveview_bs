@@ -8,3 +8,5 @@ VM LiveView ODS adds to Franck Geyer version the following features:
 - Stylesheet reworked
 - One column for driver statuses: in pit, running, DQ, DIS, Slow on track, Slow in pit,...
 - S3 timing added in monitor view
+
+Available demo: http://old-drivers-spirit.fr/vmliveview/open3/monitor.php
