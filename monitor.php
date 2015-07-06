@@ -12,6 +12,7 @@
 <meta http-equiv='content-type' content='text/html; charset=<?php echo $siteCharSet; ?>'>
 <title>VM LiveView Lite (Monitor)</title>
 <link rel='stylesheet' type='text/css' href='<?php echo $siteURL; ?>/styles.css'>
+<link rel='stylesheet' type='text/css' href='http://beta.old-drivers-spirit.fr/templates/t3_bs3_blank/local/css/bootstrap.css'>
 <script type='text/javascript'>
    var siteCharset = '<?php echo $siteCharSet; ?>';
    var siteURL = '<?php echo $siteURL; ?>';
