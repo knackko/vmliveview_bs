@@ -34,8 +34,8 @@
          $selectSessionInfos = "SELECT * FROM `sessioninfos` WHERE `ID` = '1' LIMIT 1";
          if($resultSessionInfos = $mySQLiConn->query($selectSessionInfos)){
             if($resultSessionInfos->num_rows == 1){
-               $MonitorData .= "<form name='CurrentScoring' action='' method='get'>\n";
-               $MonitorData .= "<fieldset class='sessioninfo'>\n";
+//               $MonitorData .= "<form name='CurrentScoring' action='' method='get'>\n";
+ //              $MonitorData .= "<fieldset class='sessioninfo'>\n";
                
                while($rowSessionInfos = $resultSessionInfos->fetch_assoc()){
                   // -- set session infos
@@ -178,29 +178,29 @@
                   }else{
                      $spanInGameTime = "";
                   }
-		  $MonitorData .= "<div class='container-fluid'><div class='row'>".
-			"<div class='col-xs-2'>" . $siTrackName . "</div>" . 
-			"<div class='col-xs-2'>  (" . $siTrackLength . "m)</div></div>";
-		  $MonitorData .= "<div class='row'>" .
-			"<div class='col-xs-2'>" . $langAmbientTemp . ": " .  $siAmbientTemp . "&deg;C</div>" .
-			"<div class='col-xs-2'>" . $langTrackTemp . ": " . $siTrackTemp . "&deg;C</div>" .
-			"<div class='col-xs-2'>" . $langClouds . ": " . $siDarkClouds . "%</div>" .
-			"<div class='col-xs-2'>" . $langRain . ": " . $siRaining . "%</div>" .
-			"<div class='col-xs-2'>" . $langWetOnTrack . ": " . $siWetOnTrack . "%</div>" .
-			"<div class='col-xs-2'>" . $langWind . ": - &deg;</div>" .
-			"</div>\n";
-		  $MonitorData .= "<div class='row'>" .
-			  "<div class='col-xs-2'>" . $langSession . ": " . $siSessionName . "</div>" .
-			  "<div class='col-xs-2'>" . $langDuration . ": " . formatSessionTime($siSessionEnd) . "</div>" .
-			  "<div class='col-xs-2'>" . $siTrackState . setSessionState($siSessionState) . "</div>" .
-			  "</div>\n";
+		  $MonitorData .= "<div class='container-fluid'><header class='row'>".
+			"<div class='col-xs-12 col-sm-4' id='legend-wrap2'><h1>" . $siteName . "</h1></div></header>" .
+			"<div class='row'>" .
+			"<div class='col-xs-6 col-sm-3'><h2>" . $siTrackName . "</h2></div>" . 
+			"<div class='col-xs-6 col-sm-2'><h3>" . $siTrackLength . "m</h3></div></div>";
+	          $MonitorData .= "<div class='row'>" .
+         		"<div class='col-xs-1'><h3>Forecast</h3></div>" .
+                        "<div class='col-xs-4 col-sm-2'>" . $langAmbientTemp . ": " .  $siAmbientTemp . "&deg;C<br/>" . $langTrackTemp . ": " . $siTrackTemp . "&deg;C</div>" . 
+			"<div class='col-xs-4 col-sm-2'>" . $langClouds . ": " . $siDarkClouds . "%<br/>" . $langRain . ": " . $siRaining . "%</div>" .
+                        "<div class='col-xs-4 col-sm-2'>" . $langWetOnTrack . ": " . $siWetOnTrack . "%<br/>" . $langWind . ": - &deg;</div>" .
+			"<div class='col-xs-12'>&nbsp;</div>" .
+            		"</div>\n";
+
 		  $MonitorData .= "<div class='row'> " .
-		  "<div class='col-xs-1 current'>" . $langTime . "<b> " . formatSessionTime($siSessionTime) . "</b></div>" .
-   		  "<div class='col-xs-2 col-xs-offset-4'>" . $sectorState1 . "" . $sectorState2 . "" . $sectorState3 . "</div>" .
-		  "<div class='col-xs-1 col-xs-offset-4 current'>" . $langTimeLeft . " <b>" . $siSessionTimeLeft . "</b></div>" .
-		  "</div></div>\n";
+		  "<div class='col-sm-1 current'>" . $langTime . "<span class='current'>" . formatSessionTime($siSessionTime) . "</span></div>" .
+		  "<div class='col-xs-6 col-sm-2 col-sm-offset-2'><h2>" . $siSessionName . "</h2></div>" .
+   		  "<div class='col-sm-2'>" . $sectorState1 .  $sectorState2 .  $sectorState3 . "</div>" .
+		  "<div class='col-xs-12 col-sm-2 '><h2>" . setSessionState($siSessionState) . "</h2></div>" .
+		  "<div class='col-sm-1 col-sm-offset-2 current'>" . $langTimeLeft . " <span class='current'>" . $siSessionTimeLeft . "</span></div>" .
+		  "<div class='col-xs-12'>&nbsp;</div>" .
+		  "</div>\n";
                }
-               $MonitorData .= "</fieldset>\n";
+   //            $MonitorData .= "</fieldset>\n";
                
                $checkedICB = "";
                if(isset($_POST["showICB"]) && $_POST["showICB"] == "1"){$checkedICB = "checked='checked'";}
@@ -224,7 +224,6 @@
             $selectSlots = "SELECT * FROM `slots` ORDER BY `Place` ASC";
             if($resultSlots = $mySQLiConn->query($selectSlots)){
                if($resultSlots->num_rows > 0){
-                  $MonitorData .= "<div></div>\n";
                   
                   $prevBestLap = 0;
                   
@@ -242,9 +241,9 @@
                   
                   $thStops = "<th class='monitor'>". $langStops . "</th>";
                   
-                  $MonitorData .= "<fieldset>\n";
-                  $MonitorData .= "<div class='table-responsive'><table class='table table-hover table-condensed table-striped'>\n";
-                  $MonitorData .= "<tr><th class='monitor'>". $langState . "</th>" .
+                  //$MonitorData .= "<fieldset>\n";
+                  $MonitorData .= "<div class='row'><table class='table table-hover table-condensed table-striped'>\n";
+                  $MonitorData .= "<thead><tr><th class='monitor'>". $langState . "</th>" .
                                       "<th class='monitor'>". $langPos . "</th>" .
 				      "<th class='monitor'>". $langCP . "</th>" .
                                       "<th class='monitor'>". $langDriver . "</th>" .
@@ -263,7 +262,7 @@
                                       "<th class='monitor'>". $langBestLap . "</th>" .
                                       $thStops .
                                       $thPenalties .
-                                  "</tr>\n";
+                                  "</tr></thead><tbody>\n";
                   
                   $i = 1;
                   $classPos = "";
@@ -480,20 +479,18 @@
                      $i ++;
                   }
                   
-                  $MonitorData .= "</table></div>\n";
-                  $MonitorData .= "</fieldset>\n";
-                  $MonitorData .= "</form>\n";
+                  $MonitorData .= "</tbody></table></div>\n";
+                //  $MonitorData .= "</fieldset>\n";
+                //  $MonitorData .= "</form>\n";
                }
                $resultSlots->free();
             }
          }else{
-            $MonitorData .= "</form>\n";
+//            $MonitorData .= "</form>\n";
          }
          
          $mySQLiConn->close();
-
-	 $MonitorData .= "<div class='container-fluid'>" .
-	    "<div class='row'>" .
+	 $MonitorData .= "<div class='row'>" .
 		"<div class='col-xs-8' id='legend-wrap2'><h2>Legend</h2></div></div>" .
 	    "<div class='row'>" .
                 "<div class='col-xs-2'><span class='indicator indicator-running'>R</span><span>&nbsp;Running</span></div>" .
@@ -505,7 +502,6 @@
 		"<div class='col-xs-2'><span class='finish-status-out'>DQ</span><span>&nbsp;Disqualified</span></div>" .
 		"<div class='col-xs-2'><span class='finish-status-out'>DIS</span><span>&nbsp;Disconnected</span></div>" .
                 "<div class='col-xs-2'><span class='finish-status-out'>DNF</span><span>&nbsp;Do not function</span></div>" .
-	    "</div>" .
 	    "</div>";
          
    /*      $MonitorData .= "<div>" .
@@ -515,6 +511,7 @@
                          "[Data: " . sprintf("%.1F" ,((strlen($MonitorData) * 8) / 1000)) . " kBit]" .
                          "[Load: " . $currentServerLoad . "]" .
                          "</div>\n"; */
+         $MonitorData .= "<footer class='row'><div class='col-xs-12'>";
          
          echo $MonitorData;
          
@@ -542,3 +539,4 @@
       writeErrorLog($pageName, "General Exception", "Exception Msg: (" . $ex->getMessage() . ")");
    }
 ?>
+</div></footer></div>
