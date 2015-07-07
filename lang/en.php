@@ -30,7 +30,7 @@
    $langPos           = "P";
    $langRain          = "Rain";
    $langRank          = "Rank";
-   $langSecNo         = "Sec#";
+   $langSecNo         = "S#";
    $langSector1       = "S1";
    $langSector2       = "S2";
    $langSector3       = "S3";

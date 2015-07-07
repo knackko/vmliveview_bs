@@ -35,7 +35,13 @@ span.current{
   text-transform: uppercase;
   
 }
-
+td.secnum{
+  color: #FFF;
+  background: #555;
+  display: inline;
+  border-radius: 16px; 
+  
+}
 span.green{
   line-height: 1.8;
   display: inline-block;

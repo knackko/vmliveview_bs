@@ -233,8 +233,7 @@
                   $thVPOT = "";
                   if($checkedVPOT != ""){$thVPOT = "<th class='monitor'>". $langVPOT . "</th>";}
                   
-                  $thSecNum = "";
-                  if($checkedSecNum != ""){$thSecNum = "<th class='monitor'>". $langSecNo . "</th>";}
+                  $thSecNum = "<th class='monitor'>". $langSecNo . "</th>";
                   
                   $thPenalties = "";
                   if($checkedPenalties != ""){$thPenalties = "<th class='monitor'>". $langPenalties . "</th>";}
@@ -377,8 +376,7 @@
                      // -- format sector numbers
                      $curSector = $rowSlots["Sector"];
                      if($curSector == 0){$curSector = 3;}
-                     $tdSecNum = "";
-                     if($checkedSecNum != ""){$tdSecNum = "<td class='center'>" . $curSector . "</td>";}
+                     $tdSecNum = "<td><span class='badge'>S" . $curSector . "</span></td>";
                      
                      // -- format current sector times 1 and 2 and 3
                      $curS1 = $rowSlots["CurS1"];
