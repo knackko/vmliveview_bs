@@ -35,18 +35,20 @@ span.current{
   text-transform: uppercase;
   
 }
-td.secnum{
+span.secnum{
   color: #FFF;
-  background: #555;
-  display: inline;
-  border-radius: 16px; 
+  background: #999;
+  line-height: 1.8;
+  display: inline-block;
+  padding: 0 4px;
+  border-radius: 4px;
   
 }
 span.green{
   line-height: 1.8;
   display: inline-block;
   padding: 0 4px;
-  color: green;
+  color: #5CB85C;
 }
 span.red{
   line-height: 1.8;
@@ -58,14 +60,14 @@ span.indicator-running{
   line-height: 1.8;
   display: inline-block;
   padding: 0 4px;
-  background: green;
+  background: #5CB85C;
   color: #fff;
 }
 span.indicator-in-pits {
   line-height: 1.8;
   display: inline-block;
   padding: 0 4px;
-  background: #999;
+  background: #777;
   color: #fff;
 }
 span.finish-status-out {
@@ -98,7 +100,7 @@ th {
     line-height: 2.2;
   display: inline-block;
   padding: 2px 8px;
-  background: green;
+  background: #5CB85C;
 border-radius: 14px;
 
 }

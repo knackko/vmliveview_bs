@@ -376,7 +376,7 @@
                      // -- format sector numbers
                      $curSector = $rowSlots["Sector"];
                      if($curSector == 0){$curSector = 3;}
-                     $tdSecNum = "<td><span class='badge'>S" . $curSector . "</span></td>";
+                     $tdSecNum = "<td><span class='secnum'>S" . $curSector . "</span></td>";
                      
                      // -- format current sector times 1 and 2 and 3
                      $curS1 = $rowSlots["CurS1"];
