@@ -509,7 +509,6 @@
                          "[Data: " . sprintf("%.1F" ,((strlen($MonitorData) * 8) / 1000)) . " kBit]" .
                          "[Load: " . $currentServerLoad . "]" .
                          "</div>\n"; */
-         $MonitorData .= "<footer class='row'><div class='col-xs-12'>";
          
          echo $MonitorData;
          
@@ -531,10 +530,11 @@
       }else{
          echo $mySQLiConnError;
       }
-      
+	echo "<div class='row'><div class='col-xs-12'>";
       include "inc.copyright.php";
+	echo "</div></div>";
    }catch(Exception $ex){
       writeErrorLog($pageName, "General Exception", "Exception Msg: (" . $ex->getMessage() . ")");
    }
 ?>
-</div></footer></div>
+</div>
