@@ -9,6 +9,8 @@ VM LiveView bs adds to Franck Geyer version the following features:
 - One column for driver status: in pit, running, DQ, DIS, Slow on track, Slow in pit,...
 - S3 timing added in monitor view
 
+VM LiveView bs is still in developpment, it is not for production at this time, but you can try it
+
 Available demo (if started):
 
 http://212.129.50.82/vmliveview_champ/monitor.php
