@@ -11,5 +11,7 @@ VM LiveView bs adds to Franck Geyer version the following features:
 
 Available demo (if started):
 http://212.129.50.82/vmliveview_champ/monitor.php
+
 http://212.129.50.82/vmliveview_fun2/monitor.php
+
 http://old-drivers-spirit.fr/vmliveview/open3/monitor.php
